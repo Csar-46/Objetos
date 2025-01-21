@@ -10,24 +10,36 @@ public class Televisor {
 
     }
 
-    public Televisor(int canal){
+    public Televisor(int valorCanal){
 
-
+        getCanal(canal);
 
     }
 
-    public void subirCanal(){}
-    public void bajarCanal(){}
+    public void subirCanal(){
 
-    public int getCanal(){
+        getCanal(canal++);
+
+    }
+    public void bajarCanal(){
+
+        getCanal(canal--);
+
+    }
+
+    public int getCanal(int canal){
 
         return this.canal;
+
     }
 
     public void setCanal(int canal){
 
-        this.canal = canal;
+        if (canal >= 1 || canal <= 99){
 
+            this.canal = canal;
+
+        }
     }
 
 }
