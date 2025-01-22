@@ -3,43 +3,85 @@ package org.example;
 public class Televisor {
 
     private int canal;
+    private int volumen;
 
     public Televisor(){
 
-
-
-    }
-
-    public Televisor(int valorCanal){
-
-        getCanal(canal);
+        setCanal(1);
+        setVolumen(5);
 
     }
 
-    public void subirCanal(){
+    public Televisor(int canal, int volumen){
 
-        getCanal(canal++);
-
-    }
-    public void bajarCanal(){
-
-        getCanal(canal--);
+        setCanal(canal);
 
     }
 
-    public int getCanal(int canal){
+    public void subirCanal(int canal){
+
+        this.canal = canal++;
+
+        setCanal(canal);
+        System.out.println("Canal: " + getCanal());
+
+    }
+    public void bajarCanal(int canal){
+
+        this.canal = canal--;
+
+        setCanal(canal);
+        System.out.println("Canal: " + getCanal());
+
+    }
+
+
+    public int getCanal(){
 
         return this.canal;
 
     }
-
     public void setCanal(int canal){
 
-        if (canal >= 1 || canal <= 99){
+        if (canal >= 1 && canal <= 99){
 
             this.canal = canal;
 
         }
+    }
+
+
+    public int getVolumen(){
+
+        return this.volumen;
+
+    }
+    public void setVolumen (int volumen){
+
+        if (volumen >= 1 && volumen <= 99) {
+
+            this.volumen = volumen;
+
+        }
+
+    }
+
+
+    public void subirVolumen(int volumen){
+
+        this.volumen = volumen++;
+
+        setVolumen(volumen);
+        System.out.println("Volumen: " + getVolumen());
+
+    }
+    public void bajarVolumen(int volumen){
+
+        this.volumen = volumen--;
+
+        setVolumen(volumen);
+        System.out.println("Volumen: " + getVolumen());
+
     }
 
 }
