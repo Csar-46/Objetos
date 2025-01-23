@@ -4,7 +4,18 @@ import java.util.Random;
 
 public class Paciente {
 
+    @Override
+    public String toString(){
+        return "Paciente : [Nombre = " + this.nombre + ", Edad = " + this.edad + ", Genero = " + this.genero + ", Peso = " + this.peso + ", Altura = " + this.altura + "]" ;
+    }
+
     public final static char GENERO_BASE = 'X';
+
+    public final static int BAJO_PESO = -1;
+    public final static int PESO_IDEAL = 0;
+    public final static int SOBREPESO = 1;
+
+    public final static int MAYOR_EDAD = 18;
 
     private String nombre;
     private int edad;
@@ -15,14 +26,15 @@ public class Paciente {
 
     public Paciente (){
 
-        this.genero = GENERO_BASE;
-        generarDNI();
+        //this.genero = GENERO_BASE;
+        //generarDNI();
+        this("", 0, GENERO_BASE,0,0);
 
     }
 
-    public void imprimirInfo(){
+    public Paciente (String nombre, int edad, char genero){
 
-        System.out.println(this.nombre + " " + this.edad + " " + this.DNI + " " + this.genero + " " + this.peso + " " + this.altura);
+        this(nombre, edad, genero, 0, 0);
 
     }
 
@@ -31,7 +43,7 @@ public class Paciente {
 
         this.nombre = nombre;
         this.edad = edad;
-        this.genero = genero;
+        setGenero(genero);
         this.peso = peso;
         this.altura = altura;
         generarDNI();
@@ -47,7 +59,88 @@ public class Paciente {
                 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z',
                 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
-        this.DNI = Integer.toString(numeroDNI) + letras [resto];
+        DNI = Integer.toString(numeroDNI) + letras [resto];
     }
+
+    private void comprobarSexo(char genero){
+
+        if (genero == 'H' ||genero == 'M') {
+
+            this.genero = genero;
+
+        }else{
+
+            this.genero = GENERO_BASE;
+
+        }
+
+    }
+
+    public int calcularIMC(){
+
+        double resultado = peso / (Math.pow(altura,2));
+
+        if (resultado < 20){
+
+            return BAJO_PESO;
+
+        }else if (resultado > 25){
+
+            return SOBREPESO;
+
+        }else return PESO_IDEAL;
+    }
+
+    public boolean mayorEdad(){
+
+        if (edad >= MAYOR_EDAD){
+
+            return true;
+
+        }else return false;
+
+    }
+
+
+
+    public char getGenero() {
+        return genero;
+    }
+    public void setGenero(char genero) {
+        comprobarSexo(genero);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getDNI() {
+        return DNI;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
 
 }

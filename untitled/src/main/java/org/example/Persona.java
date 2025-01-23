@@ -2,6 +2,13 @@ package org.example;
 
 public class Persona {
 
+    @Override
+    public String toString(){
+
+        return "Paciente : [Nombre = " + this.nombre + ", Apellido = " + this.apellido + ", DNI = " + this.DNI + ", Residencia = " + this.residendia + ", Profesion = " + this.profesion + ", Sexo = " + this.sexo + ", Edad = " + this.edad + "]" ;
+
+    }
+
     private String nombre;
     private String apellido;
     private String DNI;
@@ -105,12 +112,6 @@ public class Persona {
 
 
         return this.nombre + " " + this.apellido;
-    }
-
-    public void imprimir () {
-
-        System.out.println(this.nombre + " " + this.apellido + " " + this.DNI + " " + this.sexo + " " + this.edad);
-
     }
 
 }

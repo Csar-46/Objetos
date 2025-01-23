@@ -2,14 +2,61 @@ package org.example;
 
 import java.util.Scanner;
 
+import static org.example.Paciente.*;
+
 public class Main {
+
+    static Scanner entrada = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        Paciente paciente = new Paciente("Luis", 35, 'H',90, 1.90);
-        paciente.imprimirInfo();
 
-        Paciente paciente1 = new Paciente();
-        paciente1.imprimirInfo();
+//        System.out.println("Introduce el nombre");
+//        String nombre = entrada.next();
+//
+//        System.out.println("Introduce el edad");
+//        int edad = entrada.nextInt();
+//
+//        System.out.println("Introduce el género");
+//        char genero = entrada.next().charAt(0);
+//
+//        System.out.println("Introduce el peso");
+//        double peso = entrada.nextDouble();
+//
+//        System.out.println("Introduce el altura");
+//        double altura = entrada.nextDouble();
+
+//
+//        Paciente paciente1 = new Paciente(nombre, edad, genero, peso, altura);
+//        Paciente paciente2 = new Paciente(nombre, edad, genero);
+        Paciente paciente3 = new Paciente();
+
+        paciente3.setNombre("Llados");
+        paciente3.setEdad(16);
+        paciente3.setGenero('H');
+        paciente3.setPeso(120);
+        paciente3.setAltura(1.70);
+
+        System.out.println(paciente3);
+
+//        mostrarIMC(paciente1);
+//        mostrarIMC(paciente2);
+//        mostrarIMC(paciente3);
+
+//        edad(paciente1);
+//        edad(paciente2);
+//        edad(paciente3);
+
+
+
+
+
+
+//        Paciente paciente = new Paciente("Luis", 35, 'H',90, 1.90);
+//        paciente.imprimirInfo();
+//
+//        Paciente paciente1 = new Paciente();
+//        paciente1.imprimirInfo();
 
 //        Persona persona1 = new Persona();
 //        Persona persona2 = new Persona("Paco", "Ruiz", "12345678A", "Alicante", "Inormatico", 'H', 45);
@@ -40,4 +87,33 @@ public class Main {
 //        }
 
     }
+
+    public static void mostrarIMC (Paciente paciente){
+
+        int estado = paciente.calcularIMC();
+
+        switch (estado){
+
+            case BAJO_PESO:
+                System.out.println("Estas mu delga/o maj@");
+                break;
+            case PESO_IDEAL:
+                System.out.println("Pero que saludable te veo maquinilla!");
+                break;
+            case SOBREPESO:
+                System.out.println("Sobran un par de doritos my g");
+                break;
+        }
+    }
+
+    public static void edad(Paciente paciente){
+
+        if(paciente.mayorEdad()){
+
+            System.out.println("El paciente " + paciente.getNombre() +" tiene pelos en los miembros.");
+
+        }else System.out.println("El paciente " + paciente.getNombre() +" es alevín.");
+
+    }
+
 }

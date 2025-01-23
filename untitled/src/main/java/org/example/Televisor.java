@@ -2,6 +2,13 @@ package org.example;
 
 public class Televisor {
 
+    @Override
+    public String toString(){
+
+        return "Paciente : [Canal = " + this.canal + ", Volumen = " + this.volumen +  "]" ;
+
+    }
+
     private int canal;
     private int volumen;
 
