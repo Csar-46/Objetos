@@ -10,7 +10,35 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Estudiante estudiante1 = new Estudiante("Paco");
+        Estudiante estudiante2 = new Estudiante("Paco","2ºESO","noseque@edu.gva.es");
 
+        System.out.println(estudiante1);
+        System.out.println(estudiante2);
+
+        if(Estudiante.validarEmail(estudiante2.getEmail())){
+            System.out.println("El email es correcto");
+        }else{
+            System.out.println("El email no cumple con el formato");
+        }
+
+        Libro libro1 = new Libro("el principito","quevedo");
+        System.out.println(libro1);
+        Libro libro2 = new Libro("tiburon","torres");
+        System.out.println(libro2);
+
+
+        System.out.println(Libro.getLibrosDisponibles());
+        libro2.prestar(estudiante2);
+        System.out.println(Libro.getLibrosDisponibles());
+        System.out.println(libro1);
+        libro1.devolver(estudiante2);
+        System.out.println(Libro.getLibrosDisponibles());
+        libro2.devolver(estudiante2);
+        System.out.println(libro2);
+
+
+        //Ejemplos de uso Objetos: Persona, Paciente, Televisor.
 //        System.out.println("Introduce el nombre");
 //        String nombre = entrada.next();
 //
@@ -29,15 +57,15 @@ public class Main {
 //
 //        Paciente paciente1 = new Paciente(nombre, edad, genero, peso, altura);
 //        Paciente paciente2 = new Paciente(nombre, edad, genero);
-        Paciente paciente3 = new Paciente();
-
-        paciente3.setNombre("Llados");
-        paciente3.setEdad(16);
-        paciente3.setGenero('H');
-        paciente3.setPeso(120);
-        paciente3.setAltura(1.70);
-
-        System.out.println(paciente3);
+//        Paciente paciente3 = new Paciente();
+//
+//        paciente3.setNombre("Llados");
+//        paciente3.setEdad(16);
+//        paciente3.setGenero('H');
+//        paciente3.setPeso(120);
+//        paciente3.setAltura(1.70);
+//
+//        System.out.println(paciente3);
 
 //        mostrarIMC(paciente1);
 //        mostrarIMC(paciente2);
@@ -88,32 +116,33 @@ public class Main {
 
     }
 
-    public static void mostrarIMC (Paciente paciente){
-
-        int estado = paciente.calcularIMC();
-
-        switch (estado){
-
-            case BAJO_PESO:
-                System.out.println("Estas mu delga/o maj@");
-                break;
-            case PESO_IDEAL:
-                System.out.println("Pero que saludable te veo maquinilla!");
-                break;
-            case SOBREPESO:
-                System.out.println("Sobran un par de doritos my g");
-                break;
-        }
-    }
-
-    public static void edad(Paciente paciente){
-
-        if(paciente.mayorEdad()){
-
-            System.out.println("El paciente " + paciente.getNombre() +" tiene pelos en los miembros.");
-
-        }else System.out.println("El paciente " + paciente.getNombre() +" es alevín.");
-
-    }
+    //Metodos de paciente
+//    public static void mostrarIMC (Paciente paciente){
+//
+//        int estado = paciente.calcularIMC();
+//
+//        switch (estado){
+//
+//            case BAJO_PESO:
+//                System.out.println("Estas mu delga/o maj@");
+//                break;
+//            case PESO_IDEAL:
+//                System.out.println("Pero que saludable te veo maquinilla!");
+//                break;
+//            case SOBREPESO:
+//                System.out.println("Sobran un par de doritos my g");
+//                break;
+//        }
+//    }
+//
+//    public static void edad(Paciente paciente){
+//
+//        if(paciente.mayorEdad()){
+//
+//            System.out.println("El paciente " + paciente.getNombre() +" tiene pelos en los miembros.");
+//
+//        }else System.out.println("El paciente " + paciente.getNombre() +" es alevín.");
+//
+//    } //
 
 }
