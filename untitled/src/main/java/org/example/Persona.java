@@ -5,7 +5,7 @@ public class Persona {
     @Override
     public String toString(){
 
-        return "Paciente : [Nombre = " + this.nombre + ", Apellido = " + this.apellido + ", DNI = " + this.DNI + ", Residencia = " + this.residendia + ", Profesion = " + this.profesion + ", Sexo = " + this.sexo + ", Edad = " + this.edad + "]" ;
+        return "Persona : [Nombre = " + this.nombre + ", Apellido = " + this.apellido + ", DNI = " + this.DNI + ", Residencia = " + this.residendia + ", Profesion = " + this.profesion + ", Sexo = " + this.sexo + ", Edad = " + this.edad + "]" ;
 
     }
 
