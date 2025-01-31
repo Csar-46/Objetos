@@ -1,8 +1,11 @@
 package org.example;
 
-import java.util.Scanner;
+import org.example.biblioteca.Editorial;
+import org.example.biblioteca.Estudiante;
+import org.example.biblioteca.Libro;
+import org.example.biblioteca.Prestamo;
 
-import static org.example.Paciente.*;
+import java.util.Scanner;
 
 public class Main {
 
