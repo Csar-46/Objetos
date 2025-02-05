@@ -6,11 +6,12 @@ public class Empleado {
 
     Scanner entrada = new Scanner(System.in);
 
-    private int cont = 0;
     private String id;
     private String nombre;
     private String cargo;
     private Empleado director;
+
+    private static int cont = 0;
     public static final String ID_EMP = "EP";
 
     public Empleado (String nombre){
