@@ -15,14 +15,13 @@ public class Cadena {
         this.listaPrograma = new ArrayList<>();
     }
 
-    public void agregarPrograma(String nombre, String director) {
-        for (Programa programa : listaPrograma) {
-            if (programa.getNombre().equalsIgnoreCase(nombre)) {
+    public void agregarPrograma(Programa programa) {
+        for (Programa p : listaPrograma) {
+            if (p.getNombre().equalsIgnoreCase(nombre)) {
                 System.out.println("El programa ya existe.");
                 return;
             }
         }
-        Programa programa = new Programa(nombre, this, director);
         listaPrograma.add(programa);
     }
 

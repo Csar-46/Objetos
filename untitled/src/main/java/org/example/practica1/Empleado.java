@@ -11,20 +11,20 @@ public class Empleado {
     private String cargo;
     private Empleado director;
 
+    private static String [] cargos =  {"director","tecnico","presentador","colaborado"};
     private static int cont = 0;
     public static final String ID_EMP = "EP";
 
     public Empleado (String nombre){
 
-        this(nombre, "director", null);
+        setDirector(director);
 
     }
 
     public Empleado (String nombre, String cargo, Empleado director){
 
         this.nombre = nombre;
-        setCargo(cargo);
-        this.cargo = cargo;
+        setCargo(cargo , cargos);
         cont++;
         this.id = carcularID();
     }
@@ -50,11 +50,11 @@ public class Empleado {
     }
 
     public void setDirector(Empleado director) {
-        if (!director.equals(this.cargo)) {
-            this.director = director;
-        }
-
-        this.director = null;
+//        if (!director.equals(this.cargo)) {
+//            this.director = director;
+//        }else{
+//            this.director = null;
+//        }
     }
 
 
@@ -62,15 +62,17 @@ public class Empleado {
         return cargo;
     }
 
-    public void setCargo(String cargo) {
+    public void setCargo(String cargo, String [] cargos) {
 
-        if(cargo.equalsIgnoreCase("director") || cargo.equalsIgnoreCase("técnico")
-            || cargo.equalsIgnoreCase("presentador") || cargo.equalsIgnoreCase("colaborado")){
+        for (String s : cargos) {
 
-            this.cargo = cargo;
+            if (s.equalsIgnoreCase(cargo)) {
 
+                this.cargo = cargo;
+                return;
+
+            }
         }
-
         this.cargo = "pte";
     }
 

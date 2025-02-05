@@ -5,20 +5,12 @@ public class AppProgramas {
 
     public static void main(String[] args) {
 
-        Empleado empleado1 = new Empleado("Mauro", "director", null);
-        Empleado empleado2 = new Empleado("Izan", "colaborador", empleado1);
-        System.out.println(empleado1);
-        System.out.println(empleado2);
-
-        System.out.println();
-        System.out.println();
-
-
         //creamos una cadena de tv
         Cadena antena3 = new Cadena("Antena 3");
         System.out.println(antena3);
         //creamos un programa
         Programa el_hormiguero = new Programa("El Hormiguero",antena3,"Director1");
+        antena3.agregarPrograma(el_hormiguero);
         System.out.println(el_hormiguero);
         System.out.println(antena3);
         //insertamos empleados en el programa
