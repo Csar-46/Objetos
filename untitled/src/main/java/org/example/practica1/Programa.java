@@ -12,17 +12,44 @@ public class Programa {
     private Empleado director;
 
 
-    public Programa (String nombre, Cadena cadena){
+    public Programa (String nombre, Cadena cadena, String director){
 
         this.nombre = nombre;
         this.cadena = cadena;
         temporada = 0;
         this.listaEmpleados = new ArrayList<>();
         this.listaInvitados = new ArrayList<>();
-        this.director = null;
+        //
+        this.director = new Empleado (director);
+        //
 
     }
 
+    public void insertarInvitado (String nombre, String profesion, int temporada){
+
+        for (Invitado invitado: listaInvitados){
+
+            if(invitado.getNombre().equals(nombre)){
+                System.out.println("El invitado ya esta registrado.");
+                return;
+            }
+        }
+        Invitado invitado = new Invitado(nombre, profesion, temporada);
+        listaInvitados.add(invitado);
+    }
+
+    public void insertarEmpleado (String nombre, String cargo, Empleado director){
+
+        for (Empleado empleado : listaEmpleados){
+
+            if (empleado.getNombre().equals(nombre)){
+                System.out.println("El empleado ya esta registrado.");
+                return;
+            }
+        }
+        Empleado empleado = new Empleado(nombre, cargo, director);
+        listaEmpleados.add(empleado);
+    }
 
     public ArrayList<Empleado> getListaEmpleados() {
         return listaEmpleados;
@@ -72,4 +99,15 @@ public class Programa {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return "Programa{" +
+                "nombre='" + nombre + '\'' +
+                ", cadena=" + cadena +
+                ", temporada=" + temporada +
+                ", listaEmpleados=" + listaEmpleados +
+                ", listaInvitados=" + listaInvitados +
+                ", director=" + director +
+                '}';
+    }
 }

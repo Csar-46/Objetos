@@ -13,25 +13,25 @@ public class Empleado {
     private Empleado director;
     public static final String ID_EMP = "EP";
 
-    public Empleado (String nombre, String cargo){
+    public Empleado (String nombre){
 
-        cont++;
-        this.id = carcularID();
+        this(nombre, "director", null);
+
+    }
+
+    public Empleado (String nombre, String cargo, Empleado director){
+
         this.nombre = nombre;
         setCargo(cargo);
         this.cargo = cargo;
+        cont++;
+        this.id = carcularID();
     }
 
 
     public String carcularID(){
 
-        if (cont<10){
-            return ID_EMP+"00"+cont;
-        } else if (cont<100) {
-            return ID_EMP+"0"+cont;
-        }else {
-            return ID_EMP+cont;
-        }
+        return ID_EMP + String.format("%03d",cont);
 
     }
 
