@@ -1,45 +1,41 @@
 package org.example.practica1;
-
-
-
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Cadena {
 
     private String nombre;
-    private ArrayList<Programa> listaPrograma;
+    private ArrayList<Programa> listaProgramas;
 
     public Cadena(String nombre) {
         this.nombre = nombre;
-        this.listaPrograma = new ArrayList<>();
+        this.listaProgramas = new ArrayList<>();
     }
 
     public void agregarPrograma(Programa programa) {
-        for (Programa p : listaPrograma) {
-            if (p.getNombre().equalsIgnoreCase(nombre)) {
-                System.out.println("El programa ya existe.");
-                return;
-            }
+
+        if (listaProgramas.contains(programa)) {
+            System.out.println("El programa ya existe.");
+        }else{
+            listaProgramas.add(programa);
+            programa.setCadena(this);
         }
-        listaPrograma.add(programa);
     }
 
     public void eliminarPrograma(String nombre) {
-        for (int i = 0; i < listaPrograma.size(); i++) {
-            if (listaPrograma.get(i).getNombre().equalsIgnoreCase(nombre)) {
-                listaPrograma.remove(i);
+        for (int i = 0; i < listaProgramas.size(); i++) {
+            if (listaProgramas.get(i).getNombre().equalsIgnoreCase(nombre)) {
+                listaProgramas.remove(i);
                 break;
             }
         }
     }
 
-    public ArrayList<Programa> getListaPrograma() {
-        return new ArrayList<>(listaPrograma);
+    public ArrayList<Programa> getListaProgramas() {
+        return new ArrayList<>(listaProgramas);
     }
 
-    public void setListaPrograma(ArrayList<Programa> listaPrograma) {
-        this.listaPrograma = new ArrayList<>(listaPrograma);
+    public void setListaProgramas(ArrayList<Programa> listaProgramas) {
+        this.listaProgramas = new ArrayList<>(listaProgramas);
     }
 
     public String getNombre() {
@@ -50,12 +46,11 @@ public class Cadena {
         this.nombre = nombre;
     }
 
-
     @Override
     public String toString() {
         return "Cadena{" +
-                ", nombre='" + nombre + '\'' +
-                ", listaPrograma=" + listaPrograma +
+                "nombre='" + nombre + '\'' +
+                ", listaProgramas=" + listaProgramas +
                 '}';
     }
 }

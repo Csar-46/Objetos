@@ -12,51 +12,115 @@ public class Programa {
     private Empleado director;
 
 
-    public Programa (String nombre, Cadena cadena, String director){
+    private static int cont = 0;
 
+    public Programa(String nombre, Cadena cadena, String director) {
         this.nombre = nombre;
         this.cadena = cadena;
-        temporada = 0;
         this.listaEmpleados = new ArrayList<>();
         this.listaInvitados = new ArrayList<>();
-        //
-        this.director = new Empleado (director);
-        //
+        this.director = new Empleado(director);
+        cadena.agregarPrograma(this);
+    }
+
+    public void insertarInvitado(String nombre, String profesion, int temporada) {
+        listaInvitados.add(new Invitado(nombre, profesion, temporada));
+    }
+
+    public void invitadosTemporada (int temporada) {
+
+        cont = 0;
+        for (Invitado invitado : listaInvitados){
+
+            if (invitado.getTemporada() == temporada){
+
+                System.out.println("[Nombre = " + invitado.getNombre() + " Profesión = " + invitado.getProfesion() + "]");
+                cont++;
+            }
+
+        }
+
+        if (cont == 0){
+            System.out.println("Nadie ha querido venir a la temporada " + temporada + " :C");
+        } else {
+            System.out.println("¡SIUU! En la temporada " + temporada + " hemos tenido " + cont + " invitados :D");
+        }
 
     }
 
-    public void insertarInvitado (String nombre, String profesion, int temporada){
+    public void vecesInvitado (String nombre) {
 
-        for (Invitado invitado: listaInvitados){
+        cont = 0;
+        for (Invitado invitado : listaInvitados){
 
-            if(invitado.getNombre().equals(nombre)){
-                System.out.println("El invitado ya esta registrado.");
+            if (invitado.getNombre().equalsIgnoreCase(nombre)){
+                cont++;
+            }
+
+        }
+
+        if (cont == 0){
+            System.out.println("Por desgracia no tenemos el placer de que " + nombre + " haya venido a visitarnos.");
+        } else {
+            System.out.println(nombre + " ha venido a vernos " + cont + " " + (cont == 1 ? "vez!" : "veces (Vaya pesadit@)"));
+        }
+
+    }
+
+    public void rastrearInvitados(String nombre) {
+
+        for (Invitado invitado : listaInvitados){
+
+            if(invitado.getNombre().equalsIgnoreCase(nombre)){
+                System.out.println("[Temporada = " + invitado.getTemporada() + ", Fecha = " + invitado.getFecha_visita() + "]");
+                cont++;
+            }
+
+        }
+        vecesInvitado(nombre);
+    }
+
+    public boolean buscarInvitado (String nombre){
+
+        for (Invitado invitado : listaInvitados){
+
+            if (invitado.getNombre().equalsIgnoreCase(nombre)){
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    public void invitadoAntes(String nombre){
+
+        if (buscarInvitado(nombre)){
+
+
+        }
+
+    }
+
+    public void insertarEmpleado(String nombre, String cargo, Empleado director) {
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getNombre().equalsIgnoreCase(nombre)) {
+                System.out.println("El empleado ya está registrado.");
                 return;
             }
         }
-        Invitado invitado = new Invitado(nombre, profesion, temporada);
-        listaInvitados.add(invitado);
-    }
-
-    public void insertarEmpleado (String nombre, String cargo, Empleado director){
-
-        for (Empleado empleado : listaEmpleados){
-
-            if (empleado.getNombre().equals(nombre)){
-                System.out.println("El empleado ya esta registrado.");
-                return;
-            }
+        if (!cargo.equals("director")) {
+            director = this.director;
         }
         Empleado empleado = new Empleado(nombre, cargo, director);
         listaEmpleados.add(empleado);
     }
 
     public ArrayList<Empleado> getListaEmpleados() {
-        return listaEmpleados;
+        return new ArrayList<>(listaEmpleados);
     }
 
     public void setListaEmpleados(ArrayList<Empleado> listaEmpleados) {
-        this.listaEmpleados = listaEmpleados;
+        this.listaEmpleados = new ArrayList<>(listaEmpleados);
     }
 
     public Empleado getDirector() {
@@ -68,11 +132,11 @@ public class Programa {
     }
 
     public ArrayList<Invitado> getListaInvitados() {
-        return listaInvitados;
+        return new ArrayList<>(listaInvitados);
     }
 
     public void setListaInvitados(ArrayList<Invitado> listaInvitados) {
-        this.listaInvitados = listaInvitados;
+        this.listaInvitados = new ArrayList<>(listaInvitados);
     }
 
     public Cadena getCadena() {
@@ -107,7 +171,7 @@ public class Programa {
                 ", temporada=" + temporada +
                 ", listaEmpleados=" + listaEmpleados +
                 ", listaInvitados=" + listaInvitados +
-                ", director=" + director +
+                ", director=" + getDirector() +
                 '}';
     }
 }

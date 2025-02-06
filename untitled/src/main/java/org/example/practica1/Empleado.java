@@ -4,38 +4,34 @@ import java.util.Scanner;
 
 public class Empleado {
 
-    Scanner entrada = new Scanner(System.in);
+    private static int contador = 0;
+    private static final String ID_EMP = "EP";
+    private static final String[] CARGOS_VALIDOS = {"director", "tecnico", "presentador", "colaborador"};
 
     private String id;
     private String nombre;
     private String cargo;
     private Empleado director;
 
-    private static String [] cargos =  {"director","tecnico","presentador","colaborado"};
-    private static int cont = 0;
-    public static final String ID_EMP = "EP";
-
-    public Empleado (String nombre){
-
-        setDirector(director);
-
-    }
-
-    public Empleado (String nombre, String cargo, Empleado director){
-
+    public Empleado(String nombre) {
         this.nombre = nombre;
-        setCargo(cargo , cargos);
-        cont++;
-        this.id = carcularID();
+        this.cargo = "director";
+        this.director = null;
+        contador++;
+        this.id = generarID();
     }
 
-
-    public String carcularID(){
-
-        return ID_EMP + String.format("%03d",cont);
-
+    public Empleado(String nombre, String cargo, Empleado director) {
+        this.nombre = nombre;
+        setCargo(cargo);
+        setDirector(director);
+        contador++;
+        this.id = generarID();
     }
 
+    private String generarID() {
+        return ID_EMP + String.format("%03d", contador);
+    }
 
     public String getNombre() {
         return nombre;
@@ -45,48 +41,43 @@ public class Empleado {
         this.nombre = nombre;
     }
 
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        for (String cargoValido : CARGOS_VALIDOS) {
+            if (cargoValido.equalsIgnoreCase(cargo)) {
+                this.cargo = cargo;
+                return;
+            }
+        }
+        this.cargo = "pte";
+    }
+
     public Empleado getDirector() {
         return director;
     }
 
     public void setDirector(Empleado director) {
-//        if (!director.equals(this.cargo)) {
-//            this.director = director;
-//        }else{
-//            this.director = null;
-//        }
-    }
-
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo, String [] cargos) {
-
-        for (String s : cargos) {
-
-            if (s.equalsIgnoreCase(cargo)) {
-
-                this.cargo = cargo;
-                return;
-
-            }
+        if (cargo.equals("director")) {
+            this.director = null;
+        } else {
+            this.director = director;
         }
-        this.cargo = "pte";
     }
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     @Override
-    public String toString (){
-        return "[Empleado = " + getId() + ", Nombre = " + getNombre() + ", Cargo = " + getCargo() + ", Director = " + getDirector() + "]";
+    public String toString() {
+        return "Empleado{" +
+                "id='" + id + '\'' +
+                ", nombre='" + getNombre() + '\'' +
+                ", cargo='" + cargo + '\'' +
+                ", director=" + director +
+                '}';
     }
-
 }
