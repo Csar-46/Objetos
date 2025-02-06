@@ -6,6 +6,7 @@ public class Invitado {
 
     Scanner entrada = new Scanner(System.in);
 
+    //Declaramos los atibutos que vamos a usar
     private String nombre;
     private String profesion;
     private LocalDate fecha_visita;
@@ -14,8 +15,7 @@ public class Invitado {
     private int mes;
     private int dia;
 
-    private LocalDate fecha = LocalDate.of(2025,3,15);
-
+    //Creamos el constructor del Invitado
     public Invitado(String nombre, String profesion, int temporada) {
         this.nombre = nombre;
         this.profesion = profesion;
@@ -47,14 +47,59 @@ public class Invitado {
         this.fecha_visita=fecha_visita;
     }
 
-
+    //Creamos el metodo que pide la fecha en la que ha venido el invitado
     public void pedirFecha(){
-        System.out.println("Introduce el año en el que acudirá el invitado " + getNombre() + ":");
-        anyo = entrada.nextInt();
-        System.out.println("Introduce el mes:");
-        mes = entrada.nextInt();
-        System.out.println("Introduce el día:");
-        dia = entrada.nextInt();
+
+        //Pedimos la fecha y la guardamos en tres varibles
+
+        //Para cada variable, controlamos que el valor introducido es válido
+        //Además controlamos qu el formato de entrada es numérico
+        //Aumimos que todos los meses tienen 31 días por simplificar
+         do{
+             System.out.println("Introduce el año en el que acudirá el invitado " + getNombre() + ":");
+            try {
+                anyo = entrada.nextInt();
+                if(anyo >= 1900 && anyo <= 2100){
+                    break;
+                }
+                System.out.println("Error, el año no es válido.");
+            } catch (Exception e) {
+                System.out.println("ERROR. El formato debe ser numérico");
+                entrada.nextLine();
+
+            }
+        }while (true);
+
+        do{
+            System.out.println("Introduce el mes:");
+            try {
+                mes = entrada.nextInt();
+                if(mes >= 1 && mes <= 12){
+                    break;
+                }
+                System.out.println("Error, el mes no es válido.");
+            } catch (Exception e) {
+                System.out.println("ERROR. El formato debe ser numérico");
+                entrada.nextLine();
+
+            }
+        }while (true);
+
+        do{
+            System.out.println("Introduce el día:");
+            try {
+                dia = entrada.nextInt();
+                if(dia >= 1 && dia <= 31){
+                    break;
+                }
+                System.out.println("Error, el día no es válido.");
+            } catch (Exception e) {
+                System.out.println("ERROR. El formato debe ser numérico");
+                entrada.nextLine();
+            }
+        }while (true);
+
+        //Guardamos la fecha indicada en nuestro atributo "fecha_visita"
         this.fecha_visita = LocalDate.of(anyo,mes,dia);
 
     }

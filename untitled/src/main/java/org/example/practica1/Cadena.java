@@ -1,32 +1,28 @@
 package org.example.practica1;
 import java.util.ArrayList;
 
+
 public class Cadena {
 
+    //Creamos los atributos
     private String nombre;
     private ArrayList<Programa> listaProgramas;
 
+    //Creamos el constructor de cadena y la lista de programas que tendra la cadena.
     public Cadena(String nombre) {
         this.nombre = nombre;
         this.listaProgramas = new ArrayList<>();
     }
 
+    //Metodo que agrega un programa a la lista.
     public void agregarPrograma(Programa programa) {
 
+        //En caso de ya exixtir, no lo agrega y muesta el siguiente mensaje
         if (listaProgramas.contains(programa)) {
             System.out.println("El programa ya existe.");
         }else{
             listaProgramas.add(programa);
             programa.setCadena(this);
-        }
-    }
-
-    public void eliminarPrograma(String nombre) {
-        for (int i = 0; i < listaProgramas.size(); i++) {
-            if (listaProgramas.get(i).getNombre().equalsIgnoreCase(nombre)) {
-                listaProgramas.remove(i);
-                break;
-            }
         }
     }
 

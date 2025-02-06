@@ -1,6 +1,5 @@
 package org.example.practica1;
 
-
 public class AppProgramas {
 
     public static void main(String[] args) {
@@ -30,12 +29,13 @@ public class AppProgramas {
         //insertamos invitados en el programa
         el_hormiguero.insertarInvitado("Aitana","cantante",1);
         el_hormiguero.insertarInvitado("Aitana","cantante",8);
-        el_hormiguero.insertarInvitado("Aitana","cantante",1);
+
         //ver invitados del programa
         System.out.println(el_hormiguero.getListaInvitados());
         System.out.println(el_hormiguero);
         System.out.println();
 
+        //Probamos los metodos de informacion sobre los invitados creados en la clase Programa
         el_hormiguero.invitadosTemporada(1);
         el_hormiguero.vecesInvitado("Aitana");
         el_hormiguero.rastrearInvitados("Aitana");
