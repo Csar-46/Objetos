@@ -114,32 +114,7 @@ public class Programa {
         vecesInvitado(nombre);
     }
 
-    //El ultimo mmetodo de la practica no he sabido como hacerlo por mi cuenta.
-    //David me ha explicado como lo ha hecho el pero no he terminado de entenderlo, así que despues de intentarlo un rato,
-    //he decidido no incluirlo.
 
-        //De todas formas aqui dejo una pequeña parte comentada de las pruebas que he hecho.
-
-//    public boolean buscarInvitado (String nombre){
-//
-//        for (Invitado invitado : listaInvitados){
-//
-//            if (invitado.getNombre().equalsIgnoreCase(nombre)){
-//                return true;
-//            }
-//
-//        }
-//        return false;
-//    }
-//
-//    public void invitadoAntes(String nombre){
-//
-//        if (buscarInvitado(nombre)){
-//
-//
-//        }
-//
-//    }
 
 
     //Con est metodo insertamos los empleados del programa en "listaEmpleados"

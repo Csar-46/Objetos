@@ -44,21 +44,23 @@ public class Instituto {
 
     }
 
-    //Este metodo sirve para agregar estudantes a una lista segun 3 condiciones.
     public void agregarCurso(Curso curso) {
-
-        //Si la lista ya contiene el curso no se añade.
-        if (listaCursos.contains(curso)) {
-            System.out.println("El curso ya existe.");
-
-        //Si la lista se ha creado nula tampoco se añade.
-        }else if (curso == null){
+        // Verificar si el curso es nulo
+        if (curso == null) {
             System.out.println("No se puede agregar un curso nulo.");
-
-        //En el resto de casos si que se añade a la lista.
-        }else{
-            listaCursos.add(curso);
+            return;
         }
+
+        // Verificar si ya existe un curso con el mismo nombre y horas
+        for (Curso c : listaCursos) {
+            if (c.getNombre().equalsIgnoreCase(curso.getNombre()) && c.getHoras() == curso.getHoras()) {
+                System.out.println("El curso con el mismo nombre y horas ya existe.");
+                return;
+            }
+        }
+
+        // Agregar el curso si no está duplicado
+        listaCursos.add(curso);
     }
 
 }
