@@ -115,8 +115,6 @@ public class Programa {
     }
 
 
-
-
     //Con est metodo insertamos los empleados del programa en "listaEmpleados"
     public void insertarEmpleado(String nombre, String cargo, Empleado director) {
         for (Empleado empleado : listaEmpleados) {
@@ -135,6 +133,8 @@ public class Programa {
         Empleado empleado = new Empleado(nombre, cargo, director);
         listaEmpleados.add(empleado);
     }
+
+
 
     public ArrayList<Empleado> getListaEmpleados() {
         return new ArrayList<>(listaEmpleados);

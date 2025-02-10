@@ -23,30 +23,6 @@ public class Invitado {
         this.temporada = temporada;
     }
 
-    public String getProfesion() {
-        return profesion;
-    }
-
-    public void setProfesion(String profesion) {
-        this.profesion = profesion;
-    }
-
-    public int getTemporada() {
-        return temporada;
-    }
-
-    public void setTemporada(int temporada) {
-        this.temporada = temporada;
-    }
-
-    public LocalDate getFecha_visita() {
-        return fecha_visita;
-    }
-
-    public void setFecha_visita(LocalDate fecha_visita) {
-        this.fecha_visita=fecha_visita;
-    }
-
     //Creamos el metodo que pide la fecha en la que ha venido el invitado
     public void pedirFecha(){
 
@@ -110,6 +86,30 @@ public class Invitado {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getProfesion() {
+        return profesion;
+    }
+
+    public void setProfesion(String profesion) {
+        this.profesion = profesion;
+    }
+
+    public int getTemporada() {
+        return temporada;
+    }
+
+    public void setTemporada(int temporada) {
+        this.temporada = temporada;
+    }
+
+    public LocalDate getFecha_visita() {
+        return fecha_visita;
+    }
+
+    public void setFecha_visita(LocalDate fecha_visita) {
+        this.fecha_visita=fecha_visita;
     }
 
     @Override

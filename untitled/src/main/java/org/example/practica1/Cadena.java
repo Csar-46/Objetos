@@ -26,6 +26,8 @@ public class Cadena {
         }
     }
 
+    
+
     public ArrayList<Programa> getListaProgramas() {
         return new ArrayList<>(listaProgramas);
     }
