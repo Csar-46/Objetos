@@ -15,7 +15,8 @@ public class Organizador extends Persona {
         System.out.println("Rol: " + rol);
     }
 
-    public void accederEvento(Organizador organizador){
+    @Override
+    public void accederEvento(){
 
         System.out.println("Organizador: Coordinando el evento.");
 

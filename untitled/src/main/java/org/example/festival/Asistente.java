@@ -14,7 +14,8 @@ public class Asistente extends Persona {
         System.out.println("Tipo de entrada: " + entrada);
     }
 
-    public void accederEvento(Asistente asistente){
+    @Override
+    public void accederEvento(){
 
         System.out.println("Asistente: Buscando su asiento.");
 

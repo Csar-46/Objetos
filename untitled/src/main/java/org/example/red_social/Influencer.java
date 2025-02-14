@@ -10,16 +10,10 @@ public class Influencer extends Usuario {
     public Influencer(String nombre, int edad, String nom_usu, int seguidores, String...colabos) { //DUDA
 
         super(nombre, edad, nom_usu, seguidores);
-        colaboraciones = new ArrayList<>();
-        agregarColaboracion(colabos);
+        colaboraciones = new ArrayList<>(Arrays.asList(colabos));
 
     }
 
-    public void agregarColaboracion (String...colabos){
-
-        colaboraciones.addAll(Arrays.asList(colabos));
-
-    }
 
     @Override
     public void mostrarInfo() {
