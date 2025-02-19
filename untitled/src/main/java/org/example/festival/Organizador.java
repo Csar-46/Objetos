@@ -1,6 +1,6 @@
 package org.example.festival;
 
-public class Organizador extends Persona {
+public class Organizador extends Persona implements Organizable, Promocionable{
 
     private String rol;
 
@@ -22,4 +22,13 @@ public class Organizador extends Persona {
 
     }
 
+    @Override
+    public void OrganizarEvento() {
+        System.out.println("Organza");
+    }
+
+    @Override
+    public void Promocionar() {
+        System.out.println("Promociona");
+    }
 }

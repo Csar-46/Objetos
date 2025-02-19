@@ -34,6 +34,14 @@ public class Concierto {
             p.mostrarInfo();
             System.out.println();
 
+            if (p instanceof Organizable && p instanceof Promocionable){
+
+                ((Organizable) p).OrganizarEvento();
+                ((Promocionable) p).Promocionar();
+                System.out.println();
+
+            }
+
         }
 
         Persona artista = new Artista("Sofía", 25, "Rock Alternativo");
@@ -48,7 +56,7 @@ public class Concierto {
 
     public static void mostrarAcceso(Persona persona){
 
-        persona.accederEvento(); //DUDA
+        persona.accederEvento();
 
     }
 }

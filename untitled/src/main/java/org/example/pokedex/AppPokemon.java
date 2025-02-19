@@ -22,12 +22,20 @@ public class AppPokemon {
         gyarados.imprimirNivel();
         System.out.println();
 
+        Agua oshawot = new Agua(100);
+        oshawot.surf();
+        System.out.println();
+
         //Polimorfismo:
 
         Pokemon[] pokedex = {new Agua(89), new Rayo(55), new Fuego(89)};
         for(Pokemon pok : pokedex){
 
-            pok.atacar();
+            if(pok instanceof AtaquesAgua){
+
+                ((AtaquesAgua) pok).hidrobombra();
+
+            }
 
         }
     }
