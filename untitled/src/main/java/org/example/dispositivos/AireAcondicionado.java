@@ -20,7 +20,7 @@ public class AireAcondicionado extends Dispositivos implements ControlRemoto{
 
         if(!isEstado()){
 
-            System.out.println("ncendiendo aire acondicionado...");
+            System.out.println("Encendiendo aire acondicionado...");
             super.setEstado(true);
 
         }else{
