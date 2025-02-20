@@ -1,58 +1,53 @@
 package org.example.ecommerce;
-
 import java.util.Scanner;
+import static org.example.ecommerce.Tienda.pedirImporte;
 
 public class Tarjeta extends MetodoPago {
 
     Scanner entrada = new Scanner(System.in);
 
+    // Atributos de la clase.
     private String nro_tarjeta;
     private String tipo;
 
-    public Tarjeta (){
+    //Constantes de la clase.
+    private final String[] TIPOS_VALIDOS = {"VISA", "MASTERCARD", "MAESTRO"};
+    private final String DIGITOS_TARJETA = ("\\d{16}");
 
-        System.out.println("Introduce los datos de tu tarjeta: ");
-        System.out.println("Número (16 dígitos): ");
-        this.nro_tarjeta = pedir();
+    public Tarjeta (String nro_tarjeta, String tipo){
 
-        System.out.println("¿De qué tipo es tu tarjeta (VISA o MASTERCARD): ");
-        this.tipo = pedir();
+        this.nro_tarjeta = nro_tarjeta;
+        this.tipo = tipo;
 
+        // Validamos los datos de la tarjeta.
         validarTarjeta(nro_tarjeta, tipo);
 
     }
 
-    public String pedir(){
-       return entrada.next().toUpperCase();
-    }
-
-    public void validarTarjeta(String num, String tipo){
+    private void validarTarjeta(String num, String tipo){
 
         System.out.println("Validando tarjeta...");
 
-        if(num.length() == 16){
-            if(tipo.equals("VISA") || tipo.equals("MASTERCARD") || tipo.equals("MAESTRO")){
+        // Verificamos si el número tiene la longitud correcta y el formato correcto.
+        if (num.matches(DIGITOS_TARJETA)) {
 
-                procesarPago(pedirImporte());
-
-            }else{
-                System.out.println("Los datos de la tarjeta no son correctos.");
+            // Recorremos los tipos válidos para comprobar si coincide.
+            for (String t : TIPOS_VALIDOS) {
+                if (t.equalsIgnoreCase(tipo)) {
+                    System.out.println("Tarjeta válida.");
+                    return;
+                }
             }
-        }else{
-            System.out.println("Los datos de la tarjeta no son correctos.");
         }
+        System.out.println("Los datos de la tarjeta no son correctos.");
+        System.exit(0);
     }
 
-    public double pedirImporte(){
-
-        System.out.println("Introduce el importe a pagar: ");
-        return entrada.nextDouble();
-    }
-
+    // Implementamos el metodo abstracto para procesar un pago.
     @Override
     public void procesarPago(double importe) {
 
-
+        System.out.println("Procesando pago de " + importe + "€ con tarjeta de crédito " + tipo);
 
     }
 }

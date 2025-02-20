@@ -1,50 +1,61 @@
 package org.example.ecommerce;
-
 import java.util.Scanner;
-
 public class Paypal extends MetodoPago{
 
     Scanner entrada = new Scanner(System.in);
 
+    //Atributos de Paypal.
     private String cuenta;
     private double saldo;
 
+    //Constantes de la clase.
     private final double SALDO_DEF = 23;
-    public static final String CORREO_VALIDO = "^[A-Za-z0-9+_.-]+@alu.edu.gva.es$";
+    public static final String CORREO_VALIDO = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.com$";
 
-    public Paypal(){
 
-        System.out.println("Introduce la cuenta de PayPal (email).");
-        this.cuenta = pedir();
 
+    public Paypal(String cuenta){
+
+        this.cuenta = cuenta;
         this.saldo = SALDO_DEF;
 
-        validarPaypal(cuenta, saldo);
+        // Validamos si el correo introducido es correcto.
+        validarPaypal();
 
     }
 
-    public String pedir(){
-        return entrada.next();
-    }
 
-    public void validarPaypal(String email, double saldo){
+    private void validarPaypal(){
 
         System.out.println("Validando tarjeta...");
 
-        if(email.matches(CORREO_VALIDO)){
+        if(!cuenta.matches(CORREO_VALIDO) ){
 
-
+            System.out.println("El formato de la cuenta no es correcto (xxx@xxx.com).");
+            System.exit(0);
 
         }else{
-            System.out.println("Los datos de la tarjeta no son correctos.");
+
+            System.out.println("Cuenta creada correctamente.");
+
         }
     }
 
-
+    // Implementamos el metodo abstracto para procesar un pago.
     @Override
     public void procesarPago(double importe) {
 
-        System.out.println("Procesando pago de "+ importe +"€ con Paypal");
+        //Verificamos si hay saldo suficiente en la cuenta antes de pagar.
+        if(saldo > importe){
 
+            this.saldo -= importe;
+            System.out.println("Procesando pago de "+ importe +"€ con Paypal");
+
+        }else{
+
+            System.out.println("El saldo es insuficiente para completar el pago...");
+            System.exit(0);
+
+        }
     }
 }
