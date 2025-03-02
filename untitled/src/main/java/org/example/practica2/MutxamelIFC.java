@@ -10,7 +10,7 @@ public abstract class MutxamelIFC implements FuncionesIntegrantes {
     private String nombre;
     private int edad;
 
-    public MutxamelIFC(String nombre, int edad){
+    public MutxamelIFC(String nombre, int edad) {
 
         this.nombre = nombre;
         this.edad = edad;
@@ -19,20 +19,19 @@ public abstract class MutxamelIFC implements FuncionesIntegrantes {
 
     public void concentrarse() {
 
-        System.out.println("Consentrasion muy muy fuerte");
+        System.out.println("Consentrasion muy muy fuerte de " + getNombre());
 
     }
 
     public void viajar(String ciudad) {
 
-        System.out.println("Y nos fuimos pa " + ciudad + ", sin remodimiento.");
+        System.out.println(getNombre() + " se fue pa " + ciudad + ", sin remodimiento.");
 
     }
 
     public void celebrarGol() {
 
-        System.out.println("Esto va por vosotros aficion: SIUUUUUUUU!!!!");
+        System.out.println(getNombre() + ": Esto va por vosotros aficion: SIUUUUUUUU!!!!");
 
     }
-
 }
