@@ -68,95 +68,95 @@ public class AppMantenimiento {
             }
         } while (!opcion.equals("X"));
 
-//        // concentrarse()
-//
-//        jack.concentrarse();
-//        System.out.println();
-//
-//        // entrenar()
-//
-//        mark.entrenar();
-//        System.out.println();
-//
-//        // darMasaje() a algún jugador
-//
-//        jim.darMasaje(axel);
-//        System.out.println();
-//
-//        // viajar() a Madrid
-//
-//        seymour.viajar("Madrid");
-//        mark.viajar("Madrid");
-//        axel.viajar("Madrid");
-//        jack.viajar("Madrid");
-//        jim.viajar("Madrid");
-//        System.out.println();
-//
-//        // planificarEntrenamiento()
-//
-//        seymour.planificarEntrenamiento();
-//        System.out.println();
-//
-//        // entrenar()
-//
-//        mark.entrenar();
-//        System.out.println();
-//
-//        // descansar()
-//
-//        axel.descarsar();
-//        System.out.println();
-//
-//        // calentar()
-//
-//        jack.descarsar();
-//        System.out.println();
-//
-//        // jugarPartido()
-//
-//        seymour.jugarpartidos("Barcelona");
-//        System.out.println();
-//
-//        // animarEquipo()
-//
-//        nelly.animarEquipo();
-//        System.out.println();
-//
-//        // hacerCambios()
-//
-//        seymour.hacerCambios();
-//        System.out.println();
-//
-//        // marcarGol()
-//
-//        axel.marcarGol();
-//        System.out.println();
-//
-//        // celebrarGol()
-//
-//        axel.celebrarGol();
-//        System.out.println();
-//
-//        // darMasaje() a varios jugadores
-//
-//        jim.darMasaje(mark);
-//        jim.darMasaje(jack);
-//        System.out.println();
-//
-//        // viajar() a Mutxamel
-//
-//        seymour.viajar("Mutxamel");
-//        mark.viajar("Mutxamel");
-//        axel.viajar("Mutxamel");
-//        jack.viajar("Mutxamel");
-//        jim.viajar("Mutxamel");
-//        System.out.println();
-//
-//        // descansar()
-//
-//        mark.descarsar();
-//        axel.descarsar();
-//        jack.descarsar();
+        // concentrarse()
+
+        jack.concentrarse();
+        System.out.println();
+
+        // entrenar()
+
+        mark.entrenar();
+        System.out.println();
+
+        // darMasaje() a algún jugador
+
+        jim.darMasaje(axel);
+        System.out.println();
+
+        // viajar() a Madrid
+
+        seymour.viajar("Madrid");
+        mark.viajar("Madrid");
+        axel.viajar("Madrid");
+        jack.viajar("Madrid");
+        jim.viajar("Madrid");
+        System.out.println();
+
+        // planificarEntrenamiento()
+
+        seymour.planificarEntrenamiento();
+        System.out.println();
+
+        // entrenar()
+
+        mark.entrenar();
+        System.out.println();
+
+        // descansar()
+
+        axel.descarsar();
+        System.out.println();
+
+        // calentar()
+
+        jack.descarsar();
+        System.out.println();
+
+        // jugarPartido()
+
+        seymour.jugarpartidos("Barcelona");
+        System.out.println();
+
+        // animarEquipo()
+
+        nelly.animarEquipo();
+        System.out.println();
+
+        // hacerCambios()
+
+        seymour.hacerCambios();
+        System.out.println();
+
+        // marcarGol()
+
+        axel.marcarGol();
+        System.out.println();
+
+        // celebrarGol()
+
+        axel.celebrarGol();
+        System.out.println();
+
+        // darMasaje() a varios jugadores
+
+        jim.darMasaje(mark);
+        jim.darMasaje(jack);
+        System.out.println();
+
+        // viajar() a Mutxamel
+
+        seymour.viajar("Mutxamel");
+        mark.viajar("Mutxamel");
+        axel.viajar("Mutxamel");
+        jack.viajar("Mutxamel");
+        jim.viajar("Mutxamel");
+        System.out.println();
+
+        // descansar()
+
+        mark.descarsar();
+        axel.descarsar();
+        jack.descarsar();
 
     }
 
