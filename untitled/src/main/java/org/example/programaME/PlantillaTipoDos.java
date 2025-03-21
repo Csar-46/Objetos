@@ -8,26 +8,23 @@ public class PlantillaTipoDos {
 
     public static void main(String[] args){
 
-        int numero = pedirNumero();
+        while(pedirNumero()){}
+
+    }
+
+    public static boolean pedirNumero(){
+
+        int  numero = teclado.nextInt();
+        teclado.nextLine();
 
         if (numero==0){
-            System.exit(0);
+            return false;
         }else{
 
 
 
+            return true;
         }
 
-
     }
-
-    public static int pedirNumero(){
-
-           int  numero = teclado.nextInt();
-
-        return numero;
-
-    }
-
-
 }
