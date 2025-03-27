@@ -2,14 +2,18 @@ package org.example.programaME;
 
 import java.util.Scanner;
 
-public class PantillaTipoUno {
+public class PF {
+
     static Scanner teclado;
 
     public static void casoDePrueba() {
 
-        String [] potencia = teclado.nextLine().split(" ");
+        int personas = teclado.nextInt() * 3;
+        int saludos = 0;
 
-    } // casoDePrueba
+        for (int i = 0; i < personas; i++) saludos += i;
+        System.out.println(saludos);
+    }
 
     public static void main(String[] args) {
 
@@ -19,5 +23,5 @@ public class PantillaTipoUno {
         teclado.nextLine();
         for (int i = 0; i < numCasos; i++)
             casoDePrueba();
-    } // main
+    }
 }
